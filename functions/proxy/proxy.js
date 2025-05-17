@@ -1,3 +1,44 @@
+/*
+
+《Acid 免责声明》
+
+1. 性质声明
+	Acid 仅为技术演示工具，所有请求均模拟浏览器行为，不修改、不存储任何目标网站数据。
+2. 合法使用
+	禁止用于：
+		- 绕过付费内容限制
+		- 攻击性爬虫
+		- 违反《计算机信息网络国际联网安全保护管理办法》的行为
+3. 即时失效
+	部分网站可能随时升级防护，导致工具失效，不提供维护承诺。
+4. 风险警示
+	使用后若出现：
+		- IP 被目标站封禁
+		- 法律风险
+	需自行承担全部责任。
+
+---
+
+*Acid Disclaimer*
+
+1. Nature
+	Acid is a technical demo ONLY. It simulates browser requests without **modifying/storing** any target site data.
+2. Legal Use
+	Prohibited for:
+		- Bypassing paywalls
+		- Aggressive scraping
+		- Violating cybersecurity laws
+3. No Guarantee
+	Tool may break if targets update protections. **No maintenance promised.**
+4. Warning
+	You risk:
+		- IP bans by targets
+		- Legal consequences
+	All liabilities are on you.
+
+Copyright 2025 by PanDaoxi.
+*/
+
 // 工具函数定义
 const generateChinaIP = () => {
 	const pools = [
