@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -5,14 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acid DEMO</title>
-    <!-- 网页图标 -->
     <link rel="icon" href="https://blog.pandaoxi.dpdns.org/img/favicon.ico" type="image/x-icon">
-    <!-- 引入外链字体 -->
-    <link
-        href="https://fonts.font.im/css2?family=Noto+Serif+SC&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.font.im/css2?family=Noto+Serif+SC&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <style>
-        /* 全局字体设置 */
         body {
             font-family: 'Ubuntu', 'Noto Serif SC', sans-serif !important;
             max-width: 800px;
@@ -73,6 +69,7 @@
         }
 
         button {
+            font-family: 'Ubuntu', 'Noto Serif SC', sans-serif !important;
             background-color: #3498db;
             color: white;
             border: none;
@@ -120,6 +117,12 @@
         .github-link:hover {
             text-decoration: underline;
         }
+
+        .netlify-badge {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -133,7 +136,7 @@
         <div class="input-group">
             <label for="url">原 URL</label>
             <input type="text" id="url"
-                placeholder="例如：https://weavatar.com/api/avatar/789ba90686c405a1fe1e672260791ddad6209287c9b46cb411685ac7848a8bd0"
+                placeholder="https://weavatar.com/api/avatar/789ba90686c405a1fe1e672260791ddad6209287c9b46cb411685ac7848a8bd0"
                 value="https://weavatar.com/api/avatar/789ba90686c405a1fe1e672260791ddad6209287c9b46cb411685ac7848a8bd0">
         </div>
 
@@ -146,12 +149,16 @@
 
     <div class="footer">
         <p id="footer-text">Acid &copy; <span id="current-year">2025</span> | <a href="https://github.com/pandaoxi/acid"
-                class="github-link" target="_blank">GitHub
-                仓库</a></p>
+                class="github-link" target="_blank">GitHub 仓库</a> | <a href="http://blog.daoxi365.top/posts/a537a003/"
+                class="github-link" target="_blank">文档</a></p>
+        <div class="netlify-badge">
+            <a href="https://www.netlify.com/">
+                <img src="https://acid.daoxi365.dpdns.org/api/proxy?url=https://api.netlify.com/api/v1/badges/1b93a632-f82b-4523-94c5-c1476a1c9231/deploy-status" title="Netlify Status" />
+            </a>
+        </div>
     </div>
 
     <script>
-        // 动态更新年份
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         document.getElementById('sendBtn').addEventListener('click', function () {
