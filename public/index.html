@@ -1,3 +1,177 @@
-<script>
-    window.location.href = "http://blog.daoxi365.top/posts/a537a003/";
-</script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acid DEMO</title>
+    <!-- 网页图标 -->
+    <link rel="icon" href="https://blog.pandaoxi.dpdns.org/img/favicon.ico" type="image/x-icon">
+    <!-- 引入外链字体 -->
+    <link
+        href="https://fonts.font.im/css2?family=Noto+Serif+SC&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* 全局字体设置 */
+        body {
+            font-family: 'Ubuntu', 'Noto Serif SC', sans-serif !important;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-family: 'Noto Serif SC', serif;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+        }
+
+        .result a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .result a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .github-link {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Acid 演示页面</h1>
+        <p class="description">基于 Netlify Functions 实现的图片代理接口，实现破解防盗链。</p>
+    </header>
+
+    <div class="container">
+        <div class="input-group">
+            <label for="url">原 URL</label>
+            <input type="text" id="url"
+                placeholder="例如：https://weavatar.com/api/avatar/789ba90686c405a1fe1e672260791ddad6209287c9b46cb411685ac7848a8bd0"
+                value="https://weavatar.com/api/avatar/789ba90686c405a1fe1e672260791ddad6209287c9b46cb411685ac7848a8bd0">
+        </div>
+
+        <button id="sendBtn">获取代理链接</button>
+
+        <div class="result" id="result">
+            <p>结果将显示在这里……</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p id="footer-text">Acid &copy; <span id="current-year">2025</span> | <a href="https://github.com/pandaoxi/acid"
+                class="github-link" target="_blank">GitHub
+                仓库</a></p>
+    </div>
+
+    <script>
+        // 动态更新年份
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        document.getElementById('sendBtn').addEventListener('click', function () {
+            const url = document.getElementById('url').value;
+            const resultDiv = document.getElementById('result');
+
+            if (!url) {
+                resultDiv.innerHTML = '<p style="color: #e74c3c;">请填写 URL</p>';
+                return;
+            }
+
+            const proxyUrl = `/api/proxy?url=${encodeURIComponent(url)}`;
+            const fullProxyUrl = `https://acid.daoxi365.dpdns.org${proxyUrl}`;
+            const displayUrl = url.length > 50 ? fullProxyUrl.slice(0, 50) + '...' : fullProxyUrl;
+
+            resultDiv.innerHTML = `
+                <p>代理链接：<a href="${fullProxyUrl}" target="_blank">${displayUrl}</a></p>
+            `;
+        });
+    </script>
+</body>
+
+</html>
